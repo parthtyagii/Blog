@@ -7,12 +7,12 @@ export default function SinglePost() {
     return (
         <div className='singlePost'>
             <div className="singlePostWrapper">
-                <img className='singlePostImg' src="https://images.unsplash.com/photo-1618503551238-7df2c50d2236?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2l0aWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="" />
+                <img className='singlePostImg' src="https://c4.wallpaperflare.com/wallpaper/275/446/506/warm-vintage-car-hot-girl-landscape-wallpaper-preview.jpg" alt="" />
                 <h1 className="singlePostTitle">
                     Lorem ipsum dolor sit amet
                     <div className="singlePostEdit">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="fa-solid fa-trash"></i>
+                        <i className="singlePostIcon fa-regular fa-pen-to-square"></i>
+                        <i className="singlePostIcon fa-solid fa-trash"></i>
                     </div>
                 </h1>
 
@@ -20,7 +20,25 @@ export default function SinglePost() {
                     <span className="singlePostAuthor">Author : <b>Parth</b></span>
                     <span className="singlePostDate">1 hour ago</span>
                 </div>
-                <p>
+                <p className='singlePostDesc'>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
+                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
+                    laborum dolorum repudiandae molestias vel veniam quibusdam!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
+                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
+                    laborum dolorum repudiandae molestias vel veniam quibusdam!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
+                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
+                    laborum dolorum repudiandae molestias vel veniam quibusdam!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
+                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
+                    laborum dolorum repudiandae molestias vel veniam quibusdam!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
+                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
+                    laborum dolorum repudiandae molestias vel veniam quibusdam!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
+                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
+                    laborum dolorum repudiandae molestias vel veniam quibusdam!
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
                     voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
                     laborum dolorum repudiandae molestias vel veniam quibusdam!
