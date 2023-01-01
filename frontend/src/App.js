@@ -18,20 +18,13 @@ function App() {
     <BrowserRouter>
       <Topbar />
       <Routes>
+
         <Route path='/' element={<Home />} />
         <Route path='/register' element={user ? <Home /> : <Register />} />
         <Route path='/login' element={user ? <Home /> : <Login />} />
         <Route path='/write' element={user ? <Write /> : <Login />} />
         <Route path='/settings' element={user ? <Settings /> : <Login />} />
         <Route path='/post/:id' element={<Single />} />
-
-        {/* <Topbar /> */}
-        {/* <Register /> */}
-        {/* <Login /> */}
-        {/* <Settings /> */}
-        {/* <Write /> */}
-        {/* <Single /> */}
-        {/* <Home /> */}
 
       </Routes>
     </BrowserRouter>
