@@ -7,9 +7,13 @@ const userRoute = require('./routes/users');
 const postRoute = require('./routes/posts');
 const categoryRoute = require('./routes/categories');
 const multer = require('multer');
+const cors = require('cors');
 
 dotenv.config();
 
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json());
 
 mongoose.set('strictQuery', false);
@@ -47,22 +51,6 @@ app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
 app.use('/api/categories', categoryRoute);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

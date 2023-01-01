@@ -5,38 +5,41 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function Post() {
+export default function Post({ post }) {
     return (
         <div className='post'>
-            <Link to='/post/123' className='link'>
 
-                <img className='postImg' src="https://images.unsplash.com/photo-1618503551238-7df2c50d2236?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2l0aWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="" />
-                <div className="postInfo">
-                    <div className="postCats">
-                        <span className="postCat">MUSIC</span>
-                        <span className="postCat">LIFE</span>
-                    </div>
-                    <span className="postTitle">
-                        Lorem ipsum dolor sit amet
-                    </span>
-                    <hr />
-                    <span className="postDate">
-                        1 hour ago
-                    </span>
-                    <p className='postDesc'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta et cumque autem ratione?
-                        Excepturi accusantium praesentium, quidem perspiciatis iste explicabo illum debitis perferendis
-                        molestiae consectetur. Earum iusto optio animi voluptatibus?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta et cumque autem ratione?
-                        Excepturi accusantium praesentium, quidem perspiciatis iste explicabo illum debitis perferendis
-                        molestiae consectetur. Earum iusto optio animi voluptatibus?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta et cumque autem ratione?
-                        Excepturi accusantium praesentium, quidem perspiciatis iste explicabo illum debitis perferendis
-                        molestiae consectetur. Earum iusto optio animi voluptatibus?
-                    </p>
+            {post.photo &&
+                <img className='postImg' src={post.photo} alt="" />
+            }
+
+            <div className="postInfo">
+                <div className="postCats">
+
+                    {post.categories.map((c) => {
+                        // console.log(c)
+                        return (
+                            <span className="postCat" key={c}>{c}</span>
+                        );
+                    })}
+
                 </div>
 
-            </Link>
+                <Link to={`/post/${post._id}`} className='link'>
+                    <span className="postTitle">
+                        {post.title}
+                    </span>
+                </Link>
+
+                <hr />
+                <span className="postDate">
+                    {new Date(post.createdAt).toDateString()}
+                </span>
+                <p className='postDesc'>
+                    {post.desc}
+                </p>
+            </div>
+
         </div>
     );
 }

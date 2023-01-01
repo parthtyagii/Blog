@@ -8,15 +8,20 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Post from './components/Post/Post';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { useContext } from 'react';
+import { Context } from './context/Context';
 
 
 
 function App() {
-  const user = false;
+
+  const { user } = useContext(Context);
+
   return (
     <BrowserRouter>
+
       <Topbar />
+
       <Routes>
 
         <Route path='/' element={<Home />} />

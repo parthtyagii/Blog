@@ -56,7 +56,6 @@ router.delete('/:id', async (req, res) => {
             catch (e) {
                 return res.status(500).json(e);
             }
-
         }
         else {
             return res.status(500).json("You can only delete your post.");
@@ -84,6 +83,7 @@ router.get('/', async (req, res) => {
     try {
         const username = req.query.user;
         const catName = req.query.cat;
+
         try {
             let posts;
             if (username) {
@@ -100,14 +100,11 @@ router.get('/', async (req, res) => {
         catch (e) {
             res.status(500).json(e);
         }
-
     }
     catch (e) {
         return res.status(500).json(e);
     }
 })
-
-
 
 
 module.exports = router;

@@ -1,15 +1,40 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useActionData, useLocation, useSearchParams } from 'react-router-dom';
 import './SinglePost.css';
+import axios from 'axios';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
 export default function SinglePost() {
+
+    const [post, setPost] = useState({});
+
+    const location = useLocation();
+    const path = location.pathname.split('/')[2];
+    // console.log(path);
+
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get('/posts/' + path);
+            setPost(res.data);
+        }
+
+        getPost();
+    }, [path])
+
     return (
         <div className='singlePost'>
             <div className="singlePostWrapper">
-                <img className='singlePostImg' src="https://c4.wallpaperflare.com/wallpaper/275/446/506/warm-vintage-car-hot-girl-landscape-wallpaper-preview.jpg" alt="" />
+
+                {post.photo &&
+                    <img className='singlePostImg' src={post.photo} alt="" />
+
+                }
                 <h1 className="singlePostTitle">
-                    Lorem ipsum dolor sit amet
+                    {post.title}
                     <div className="singlePostEdit">
                         <i className="singlePostIcon fa-regular fa-pen-to-square"></i>
                         <i className="singlePostIcon fa-solid fa-trash"></i>
@@ -17,39 +42,17 @@ export default function SinglePost() {
                 </h1>
 
                 <div className="singlePostInfo">
-                    <span className="singlePostAuthor">Author : <b>Parth</b></span>
-                    <span className="singlePostDate">1 hour ago</span>
+                    <span className="singlePostAuthor">Author :
+                        <Link to={`/?user=${post.username}`} className='link'>
+                            <b>{post.username}</b>
+                        </Link>
+                    </span>
+                    <span className="singlePostDate">{new Date(post.createdAt).toDateString()}</span>
                 </div>
                 <p className='singlePostDesc'>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolores amet nobis,
-                    voluptates sapiente ratione quos ducimus harum dicta et suscipit earum doloribus
-                    laborum dolorum repudiandae molestias vel veniam quibusdam!
+                    {post.desc}
                 </p>
             </div>
-        </div>
+        </div >
     );
 }
