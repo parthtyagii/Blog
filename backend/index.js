@@ -10,7 +10,7 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 
-dotenv.config();
+dotenv.config({ path: './.env' });
 
 app.use(cors({
     origin: "*"
@@ -19,8 +19,10 @@ app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, '/images')));
 
 
+let DB_URL = process.env.DB_URL;
+
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://localhost:27017/blog', {
+mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -55,7 +57,7 @@ app.use('/api/posts', postRoute);
 app.use('/api/categories', categoryRoute);
 
 
-
-app.listen(5000, () => {
-    console.log('Server 5000 running!');
+let PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server ${PORT} running!`);
 })
