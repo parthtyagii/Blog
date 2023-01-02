@@ -5,9 +5,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
-
-
-
 export default function Sidebar() {
 
     const [cats, setCats] = useState([]);
@@ -36,7 +33,6 @@ export default function Sidebar() {
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">
                     {cats.map((c, index) => {
-                        // console.log(c);
                         return (
                             <Link to={`/?cat=${c.name}`} className='link' key={index}>
                                 <li className="sidebarListItem" >{c.name}</li>

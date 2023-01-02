@@ -6,14 +6,11 @@ import axios from 'axios';
 import { useRef, useContext } from 'react';
 
 
-
-
 export default function Login() {
 
   const userRef = useRef();
   const passwordRef = useRef();
   const { user, dispatch, isFetching } = useContext(Context);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,14 +28,12 @@ export default function Login() {
     }
   };
 
-  // console.log(user);
-
-
   return (
     <div className='login'>
       <span className="loginTitle">Login</span>
 
       <form className="loginForm" onSubmit={handleSubmit}>
+
         <label>Username</label>
         <input type="text" className='loginInput' ref={userRef} placeholder='Enter your username...' />
 
@@ -48,11 +43,13 @@ export default function Login() {
         <button className="loginButton" type='submit' disabled={isFetching}>
           Login
         </button>
+
       </form>
 
       <button className="loginRegisterButton">
         <Link to='/register' className='link'>Register</Link>
       </button>
+
     </div>
   )
 }

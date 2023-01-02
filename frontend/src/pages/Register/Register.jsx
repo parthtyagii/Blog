@@ -5,8 +5,6 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-
-
 export default function Register() {
 
     const [username, setUsername] = useState('');
@@ -23,7 +21,6 @@ export default function Register() {
                 email,
                 password
             })
-            // console.log(res);
 
             return res.data && window.location.replace('/login');
         }
@@ -36,6 +33,7 @@ export default function Register() {
         <div className='register'>
             <span className="registerTitle">Register</span>
             <form className="registerForm" onSubmit={handleSubmit}>
+
                 <label>Username</label>
                 <input type="text" onChange={(e) => setUsername(e.target.value)} className='registerInput' placeholder='Enter your username...' />
 
@@ -46,12 +44,15 @@ export default function Register() {
                 <input type="password" onChange={(e) => setPassword(e.target.value)} className='registerInput' placeholder='Enter your password...' />
 
                 <button className="registerButton" type='submit'>Register</button>
+
             </form>
+
             <button className="registerLoginButton">
                 <Link to='/login' className='link'>login</Link>
             </button>
 
             {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
+
         </div >
     )
 }

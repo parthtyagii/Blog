@@ -14,6 +14,7 @@ export default function SinglePost() {
 
     const PF = 'http://localhost:5000/images/';
     const { user } = useContext(Context);
+
     const [post, setPost] = useState({});
     const location = useLocation();
     const path = location.pathname.split('/')[2];

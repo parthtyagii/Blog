@@ -5,10 +5,10 @@ import { Context } from '../../context/Context';
 import { useContext } from 'react';
 
 
-
 export default function Topbar() {
 
     const { user, dispatch } = useContext(Context);
+    const PF = 'http://localhost:5000/images/';
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" });
@@ -49,9 +49,11 @@ export default function Topbar() {
                         </>
                     ) :
                     (
-                        <img
-                            className='topImg'
-                            src={user.ProfilePic} alt="" />
+                        <Link to='/settings' >
+                            <img
+                                className='topImg'
+                                src={PF + user.profilePic} alt="" />
+                        </Link>
                     )
                 }
                 <i className="topSearchIcon fa-sharp fa-solid fa-magnifying-glass"></i>

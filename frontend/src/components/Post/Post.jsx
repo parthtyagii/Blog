@@ -3,13 +3,9 @@ import './Post.css';
 import { Link } from 'react-router-dom';
 
 
-
-
 export default function Post({ post }) {
 
     const PF = 'http://localhost:5000/images/';
-
-    // console.log(post.photo);
 
     return (
         <div className='post'>
@@ -22,7 +18,6 @@ export default function Post({ post }) {
                 <div className="postCats">
 
                     {post.categories.map((c) => {
-                        // console.log(c)
                         return (
                             <span className="postCat" key={c}>{c}</span>
                         );
