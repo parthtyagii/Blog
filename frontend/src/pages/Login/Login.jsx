@@ -31,7 +31,7 @@ export default function Login() {
     }
   };
 
-  console.log(user);
+  // console.log(user);
 
 
   return (

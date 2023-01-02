@@ -8,6 +8,7 @@ const postRoute = require('./routes/posts');
 const categoryRoute = require('./routes/categories');
 const multer = require('multer');
 const cors = require('cors');
+const path = require('path');
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(cors({
     origin: "*"
 }))
 app.use(express.json());
+app.use('/images', express.static(path.join(__dirname, '/images')));
+
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27017/blog', {
@@ -46,13 +49,10 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 
 
 
-
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
 app.use('/api/categories', categoryRoute);
-
-
 
 
 

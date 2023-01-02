@@ -3,7 +3,7 @@ const User = require('../models/User');
 const Post = require('../models/Post');
 
 //Create Post
-router.post('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
@@ -46,9 +46,10 @@ router.put('/:id', async (req, res) => {
 //Delete Post
 router.delete('/:id', async (req, res) => {
     try {
+        // console.log(req.params.id)
         const post = await Post.findById(req.params.id);
         if (post.username === req.body.username) {
-
+            
             try {
                 await post.delete();
                 return res.status(200).json("Post has been deleted...");

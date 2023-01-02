@@ -31,14 +31,21 @@ export default function Write() {
             try {
                 await axios.post('/upload', data);
             }
-            catch (e) { }
+            catch (e) {
+                console.log(e);
+            }
         }
+
+        console.log("upload ho raha!")
+        console.log(newPost)
 
         try {
             const res = await axios.post('/posts', newPost);
             window.location.replace("/post/" + res.data._id);
         }
-        catch (e) { }
+        catch (e) {
+            console.log(e);
+        }
     };
 
     return (
